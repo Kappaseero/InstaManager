@@ -11,8 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interacter\LikerCommenter\Liker\" />
-    <Folder Include="Interacter\LikerCommenter\Commenter\" />
+    <Folder Include="Interacter\LikesComments\FollowedChecker\" />
+    <Folder Include="Interacter\LikesComments\Liker\" />
+    <Folder Include="Interacter\LikesComments\Commenter\" />
   </ItemGroup>
 
 </Project>
