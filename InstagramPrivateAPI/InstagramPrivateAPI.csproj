@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Interacter\LikesComments\Commenter\" />
+    <Folder Include="Interacter\LikesComments\FollowedChecker\" />
+    <Folder Include="Interacter\LikesComments\Liker\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="InstagramApiSharp" Version="1.7.4" />
+  </ItemGroup>
+
+</Project>

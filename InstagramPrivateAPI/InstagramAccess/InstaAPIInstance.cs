@@ -9,14 +9,14 @@ namespace InstagramInteracterAPI
 {
     
 
-    public static class InstaAPIInstance
+    internal static class InstaAPIInstance
     {
         
-        public static IInstaApi CreateInstance (IHttpClientFactory factory, string username, string password)
+        internal static IInstaApi CreateInstance (HttpClient httpClient, string username, string password)
         {
             IInstaApi api = InstaApiBuilder.CreateBuilder()
                 .SetUser(UserSessionData.ForUsername(username).WithPassword(password))
-                .UseHttpClient(factory.CreateClient())
+                .UseHttpClient(httpClient)
                 .Build();
 
             return api;
