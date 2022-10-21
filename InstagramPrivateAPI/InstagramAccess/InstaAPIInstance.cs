@@ -5,14 +5,14 @@ using InstagramApiSharp.Classes.Models;
 using InstagramApiSharp.Classes.SessionHandlers;
 using InstagramApiSharp.API;
 
-namespace InstagramInteracterAPI
+namespace InstagramAccess
 {
     
 
-    internal static class InstaAPIInstance
+    public static class InstaAPIInstance
     {
         
-        internal static IInstaApi CreateInstance (HttpClient httpClient, string username, string password)
+        public static IInstaApi CreateInstance (HttpClient httpClient, string username, string password)
         {
             IInstaApi api = InstaApiBuilder.CreateBuilder()
                 .SetUser(UserSessionData.ForUsername(username).WithPassword(password))

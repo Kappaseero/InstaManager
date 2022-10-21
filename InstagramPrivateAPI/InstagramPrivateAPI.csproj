@@ -7,13 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interacter\LikesComments\Commenter\" />
-    <Folder Include="Interacter\LikesComments\FollowedChecker\" />
-    <Folder Include="Interacter\LikesComments\Liker\" />
+    <Folder Include="InstagramInteracter\LikesComments\Commenter\" />
+    <Folder Include="InstagramInteracter\LikesComments\FollowedChecker\" />
+    <Folder Include="InstagramInteracter\LikesComments\Liker\" />
+    <Folder Include="InstagramInteracter\Posts\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="InstagramApiSharp" Version="1.7.4" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
   </ItemGroup>
 
 </Project>
