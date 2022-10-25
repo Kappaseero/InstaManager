@@ -12,8 +12,12 @@ namespace InstagramPrivateAPI.InstagramInteracter.Posts
 {
     internal interface IPost
     {
-        internal string Caption { get; set; }
-        internal InstaImageUpload Image { get; set; }
-
+        public string Caption { get; }
+        internal InstaImageUpload Image { get; }
+        
+        internal void MakePost(IPost post, IInstaApi instaApi)
+        {
+            instaApi.MediaProcessor.UploadPhotoAsync(post.Image, post.Caption);
+        }
     }
 }
