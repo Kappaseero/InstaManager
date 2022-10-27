@@ -10,6 +10,7 @@ using InstagramApiSharp.Classes.Models;
 using InstagramApiSharp.Classes.SessionHandlers;
 using InstagramApiSharp.API;
 using InstagramAccess;
+using InstagramPrivateAPI.InstagramInteracter.Posts;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 
@@ -18,25 +19,31 @@ namespace InstagramPrivateAPI
 {
     public class Main : BackgroundService
     {
-        private HttpClient _httpclient;
         private IInstaApi instaApi;
 
         public Main(HttpClient httpClient, IConfiguration configuration)
         {
 
-            _httpclient = httpClient;
-            instaApi = InstaAPIInstance.CreateInstance(httpClient, 
+            instaApi = InstagramAPISharpInstance.CreateInstance( 
                 //username and password from appsettings.json
                 configuration.GetSection("Credentials").GetSection("username").Value,
                 configuration.GetSection("Credentials").GetSection("password").Value);
         }
 
-        protected override Task ExecuteAsync(CancellationToken stoppingToken)
+        protected async override Task ExecuteAsync(CancellationToken stoppingToken)
         {
 
-            return Task.CompletedTask;
+            await InstagramBot(stoppingToken);
+        }
+        public override async Task StopAsync(CancellationToken stoppingToken)
+        {
+            
+            await base.StopAsync(stoppingToken);
         }
 
+        private async Task InstagramBot(CancellationToken stoppingToken)
+        {
 
+        }
     }
 }
