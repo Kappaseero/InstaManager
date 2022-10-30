@@ -20,12 +20,10 @@ namespace InstagramPrivateAPI
     public class Main : BackgroundService
     {
         private IInstaApi instaApi;
-
         public Main(HttpClient httpClient, IConfiguration configuration)
         {
-
             instaApi = InstagramAPISharpInstance.CreateInstance( 
-                //username and password from appsettings.json
+                //username and password from an IConfiguration source
                 configuration.GetSection("Credentials").GetSection("username").Value,
                 configuration.GetSection("Credentials").GetSection("password").Value);
         }
