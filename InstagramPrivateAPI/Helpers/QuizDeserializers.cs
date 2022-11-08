@@ -9,7 +9,7 @@ namespace InstagramPrivateAPI.Helpers
 {
     internal static class QuizDeserializers
     {
-        internal static QuestionAnswerModel OpenTDBDeserializer(QuestionAnswerModel model, HttpResponseMessage httpResponse)
+        internal static IQuestionAnswerModel OpenTDBDeserializer(IQuestionAnswerModel model, HttpResponseMessage httpResponse)
         {
 
 
