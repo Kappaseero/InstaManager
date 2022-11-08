@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace InstagramPrivateAPI.Models
 {
-    internal class QuestionAnswerModel
+    internal class QuizQuestionAnswerModel : IQuestionAnswerModel
     {
-        public int Id { get; set; }
+        public string FileName { get; set; }
         public string Question { get; set; }
         public string Answer { get; set; }
 
-        internal QuestionAnswerModel(int id, string question, string answer)
+        internal QuizQuestionAnswerModel(int id, string question, string answer)
         {
-            Id = id;
+            FileName = $"quiz{id}.jpg";
             Question = question;
             Answer = answer;
         }
