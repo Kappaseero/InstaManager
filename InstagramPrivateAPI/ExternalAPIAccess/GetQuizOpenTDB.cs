@@ -10,24 +10,23 @@ namespace InstagramPrivateAPI.ExternalAPIAccess
 {
     internal class GetQuizOpenTDB : IGetQuiz
     {
-        public GetQuizOpenTDB(HttpClient httpClient)
+        public GetQuizOpenTDB(HttpClient httpClient, IQuestionAnswerModel QAmodel)
         {
             HttpClient = httpClient;
-            QuestionAnswer = GetDataAsync().Result;
+            QuestionAnswer = GetDataAsync(QAmodel).Result;
         }
         public HttpClient HttpClient { get; set; }
-        public QuestionAnswerModel QuestionAnswer { get; set; }
-        public string Uri { get { return "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple"; } }
+        public IQuestionAnswerModel QuestionAnswer { get; set; }
+        public string Uri { get { return "https://opentdb.com/api.php?amount=1&type=multiple"; } }
 
 
         // Gets 1 QnA from QuizOpenTDB and deserializes it with Helpers.QuizDeserializers
-        public async Task<QuestionAnswerModel> GetDataAsync()
+        public async Task<IQuestionAnswerModel> GetDataAsync(IQuestionAnswerModel questionAnswerModel)
         {
-            QuestionAnswerModel result;
             try
             {
                 var response = await HttpClient.GetAsync(Uri);
-                result = QuizDeserializers.OpenTDBDeserializer(QuestionAnswer, response);
+                var result = QuizDeserializers.OpenTDBDeserializer(questionAnswerModel ,response);
 
                 return result;
             }
