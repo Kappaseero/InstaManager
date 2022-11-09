@@ -10,6 +10,7 @@
     <Folder Include="InstagramInteracter\LikesComments\Commenter\" />
     <Folder Include="InstagramInteracter\LikesComments\FollowedChecker\" />
     <Folder Include="InstagramInteracter\LikesComments\Liker\" />
+    <Folder Include="Posts\" />
   </ItemGroup>
 
   <ItemGroup>
