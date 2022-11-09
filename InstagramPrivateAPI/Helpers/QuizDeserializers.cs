@@ -18,6 +18,7 @@ namespace InstagramPrivateAPI.Helpers
             model.Question = midresult.Question;
             return model;
         }
+        //check these for exact names from the api response
         private class OpenTDBModel
         {
             public string WrongAnswers { get; set; } = string.Empty;
