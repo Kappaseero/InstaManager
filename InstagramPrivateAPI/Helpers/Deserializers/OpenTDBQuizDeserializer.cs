@@ -35,7 +35,7 @@ namespace InstagramPrivateAPI.Helpers
         //used in the middle so the deserializer understands the names
         private class ApiSpecificClass
         {
-            public string incorrect_answers { get; set; } = string.Empty;
+            public string[]? incorrect_answers { get; set; }
             public string correct_answer { get; set; } = string.Empty;
             public string question { get; set; } = string.Empty;
         }
