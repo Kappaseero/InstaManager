@@ -20,7 +20,7 @@ namespace InstagramPrivateAPI.ExternalAPIAccess
         public string Uri { get { return "https://opentdb.com/api.php?amount=1&type=multiple"; } }
 
 
-        // Gets 1 QnA from QuizOpenTDB and deserializes it with Helpers.QuizDeserializers
+        // Gets 1 QnA from QuizOpenTDB
         public async Task<HttpResponseMessage> GetDataAsync()
         {
             try
