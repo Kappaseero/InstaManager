@@ -28,9 +28,14 @@ namespace InstagramPrivateAPI.Items
             Background = background;
             FinalImage = instaImage;
             ReadyUpImage(FinalImage, textToImage);
-            Caption = QuizCaption.MakeCaption(questionAnswer);
+            DateTimeCreated = DateTime.Now;
+
+            int rightAnswer;
+            Caption = QuizCaption.MakeCaption(questionAnswer, DateTimeCreated, out rightAnswer);
+            RightAnswer = rightAnswer;
         }
 
+        public DateTime DateTimeCreated { get; set; }
         public InstaImageUpload FinalImage { get; set; }
         public TextToImageBase TextToImage { get; set; }
         public IGetQuiz GetQuiz { get; set; }
@@ -41,6 +46,7 @@ namespace InstagramPrivateAPI.Items
         public IResult<InstaMedia>? PostResult { get; set; }
         public string Caption { get; set; }
         public ResultInfo? PostInfo { get; set; }
+        public int RightAnswer { get; set; }
 
 
 
