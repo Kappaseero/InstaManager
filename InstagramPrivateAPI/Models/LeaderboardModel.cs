@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InstagramPrivateAPI.Models
 {
-    internal class LeaderboardModel
+    internal class LeaderboardModel : LeaderboardBase
     {
         internal LeaderboardModel(SortedList<int, LeaderboardPersonModel> sortedList)
         {
