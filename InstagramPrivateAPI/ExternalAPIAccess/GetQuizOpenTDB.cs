@@ -13,7 +13,7 @@ namespace InstagramPrivateAPI.ExternalAPIAccess
         public GetQuizOpenTDB(HttpClient httpClient, IQuestionAnswerModel QAmodel)
         {
             HttpClient = httpClient;
-            QuestionAnswer = GetDataAsync(QAmodel).Result;
+            QuestionAnswer = QAmodel;
         }
         public HttpClient HttpClient { get; set; }
         public IQuestionAnswerModel QuestionAnswer { get; set; }
@@ -21,14 +21,13 @@ namespace InstagramPrivateAPI.ExternalAPIAccess
 
 
         // Gets 1 QnA from QuizOpenTDB and deserializes it with Helpers.QuizDeserializers
-        public async Task<IQuestionAnswerModel> GetDataAsync(IQuestionAnswerModel questionAnswerModel)
+        public async Task<HttpResponseMessage> GetDataAsync()
         {
             try
             {
                 var response = await HttpClient.GetAsync(Uri);
-                var result = QuizDeserializers.OpenTDBDeserializer(questionAnswerModel ,response);
 
-                return result;
+                return response;
             }
             catch
             {
