@@ -9,33 +9,24 @@ using InstagramPrivateAPI.Models;
 
 namespace InstagramPrivateAPI.Helpers
 {
-    internal class QuizTextToImageSK : ITextToImage
+    internal class TextToImageSK : TextToImageBase
     {
 
-        public QuizTextToImageSK(Uri background, string folderPath, IQuestionAnswerModel questionAnswerModel, ITextModel textModel)
+        public TextToImageSK(Uri background, ITextModel textModel, string text, string fileName, string folderPath)
         {
             Background = background;
             Font = textModel.FontName;
             TextColor = new SKColor(textModel.Red, textModel.Green, textModel.Blue, textModel.Alpha);
-            FileName = questionAnswerModel.FileName;
-            FolderPath = folderPath;
-            FinalImagePath = CreateImage();
-            Text = questionAnswerModel.Question;
+            Text = text;
         }
         private Uri Background { get; set; }
         private SKColor TextColor { get; set; }
         private string Font { get; set; }
         private string Text { get; set; }
-        public Uri FinalImagePath { get; set; }
-
-        //these 2 are used to created the FinalImagePath
-        private string FolderPath { get; set; }
-        private string FileName { get; set; }
-
 
         //Returns a Uri of a jpeg that is made with the background and text
         //provided to the constructor
-        private Uri CreateImage()
+        public override byte[] CreateImage()
         {
             try
             {
@@ -68,11 +59,11 @@ namespace InstagramPrivateAPI.Helpers
 
                     using (SKImage image = surface.Snapshot())
                     using (SKData data = image.Encode(SKEncodedImageFormat.Jpeg, 100))
-                    using (var stream = File.OpenWrite(Path.Combine(FolderPath, FileName)))
                     {
-                        data.SaveTo(stream);
-                        return new Uri(Path.Combine(FolderPath, FileName));
+                        var result = data.ToArray();
+                        return result;
                     }
+
                 }
             }
             catch (Exception ex)
