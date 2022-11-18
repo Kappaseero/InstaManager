@@ -8,17 +8,14 @@ namespace InstagramPrivateAPI.Models
 {
     internal class QuizQuestionAnswerModel : IQuestionAnswerModel
     {
-        public string FileName { get; set; }
+        public int Id { get; set; }
         public string Question { get; set; }
         public string[] WrongAnswers { get; set; }
         public string Answer { get; set; }
 
-        internal QuizQuestionAnswerModel(int id, string question, string answer, string[] wrongAnswers)
+        internal QuizQuestionAnswerModel()
         {
-            FileName = $"quiz{id}.jpg";
-            Question = question;
-            Answer = answer;
-            WrongAnswers = wrongAnswers;
+
         }
     }
 }
