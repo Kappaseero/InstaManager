@@ -12,22 +12,19 @@ namespace InstagramPrivateAPI.Helpers
     internal class TextToImageSK : TextToImageBase
     {
 
-        public TextToImageSK(Uri background, ITextModel textModel, string text, string fileName, string folderPath)
+        public TextToImageSK()
         {
-            Background = background;
-            Font = textModel.FontName;
-            TextColor = new SKColor(textModel.Red, textModel.Green, textModel.Blue, textModel.Alpha);
-            Text = text;
+            
         }
-        private Uri Background { get; set; }
-        private SKColor TextColor { get; set; }
-        private string Font { get; set; }
-        private string Text { get; set; }
-
+       
         //Returns a Uri of a jpeg that is made with the background and text
         //provided to the constructor
-        public override byte[] CreateImage()
+        public override byte[] CreateImage(Uri background, ITextModel textModel, string imageText)
         {
+            Uri Background = background;
+            SKColor sKColor = new SKColor(textModel.Red, textModel.Green, textModel.Blue, textModel.Alpha);
+
+
             try
             {
 
@@ -44,11 +41,11 @@ namespace InstagramPrivateAPI.Helpers
                     }
 
                     using (SKPaint textPaint = new SKPaint())
-                    using (SKTypeface tf = SKTypeface.FromFamilyName(Font))
+                    using (SKTypeface tf = SKTypeface.FromFamilyName(textModel.FontName))
                     {
-                        string text = Text;
+                        string text = imageText;
                         textPaint.TextAlign = SKTextAlign.Center;
-                        textPaint.Color = TextColor;
+                        textPaint.Color = sKColor;
                         textPaint.IsAntialias = true;
                         textPaint.TextSize = info.Width / 10;
                         textPaint.Typeface = tf;
