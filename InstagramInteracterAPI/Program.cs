@@ -1,7 +1,11 @@
-
+using InstagramPrivateAPI.Items;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+//Dependency injection
+builder.Services.AddTransient<QuizSettingsBase, QuizSettingsTest>();
+builder.Services.AddTransient<QuizItem, QuizItem>();
 
 // Add services to the container.
 builder.Services.AddControllers();
