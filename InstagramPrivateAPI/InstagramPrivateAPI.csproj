@@ -13,9 +13,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="ImageFiles\QuizBackgrounds.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="InstagramApiSharp" Version="1.7.2" />
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
     <PackageReference Include="SkiaSharp" Version="2.88.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="ImageFiles\tempBackground.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ImageFiles\tempBackground.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
