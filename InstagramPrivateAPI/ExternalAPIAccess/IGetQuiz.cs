@@ -12,8 +12,6 @@ namespace InstagramPrivateAPI.ExternalAPIAccess
     {
         public string Uri { get; }
         public HttpClient HttpClient { get; set; }
-        public IQuestionAnswerModel QuestionAnswer { get; set; }
         public Task<HttpResponseMessage> GetDataAsync();
-        
     }
 }

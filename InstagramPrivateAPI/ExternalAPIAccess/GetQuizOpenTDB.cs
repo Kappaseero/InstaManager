@@ -10,13 +10,11 @@ namespace InstagramPrivateAPI.ExternalAPIAccess
 {
     internal class GetQuizOpenTDB : IGetQuiz
     {
-        public GetQuizOpenTDB(HttpClient httpClient, IQuestionAnswerModel QAmodel)
+        public GetQuizOpenTDB(HttpClient httpClient)
         {
             HttpClient = httpClient;
-            QuestionAnswer = QAmodel;
         }
         public HttpClient HttpClient { get; set; }
-        public IQuestionAnswerModel QuestionAnswer { get; set; }
         public string Uri { get { return "https://opentdb.com/api.php?amount=1&type=multiple"; } }
 
 
