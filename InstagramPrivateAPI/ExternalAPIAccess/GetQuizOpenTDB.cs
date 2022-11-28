@@ -19,11 +19,11 @@ namespace InstagramPrivateAPI.ExternalAPIAccess
 
 
         // Gets 1 QnA from QuizOpenTDB
-        public async Task<HttpResponseMessage> GetDataAsync()
+        public async Task<string> GetDataAsync()
         {
             try
             {
-                var response = await HttpClient.GetAsync(Uri);
+                var response = await HttpClient.GetStringAsync(Uri);
 
                 return response;
             }
