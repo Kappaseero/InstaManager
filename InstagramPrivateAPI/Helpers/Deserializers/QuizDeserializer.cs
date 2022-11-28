@@ -10,7 +10,7 @@ namespace InstagramPrivateAPI.Helpers.Deserializers
 {
     internal abstract class QuizDeserializer
     {
-        internal abstract IQuestionAnswerModel? Deserialize(IQuestionAnswerModel model, HttpResponseMessage responseMessage);
+        internal abstract IQuestionAnswerModel? Deserialize(IQuestionAnswerModel model, string deserializable);
 
         private abstract class ApiSpecificClass
         {
