@@ -1,4 +1,6 @@
 using InstagramPrivateAPI.Items;
+using InstagramApiSharp.API;
+using InstagramApiSharp.Classes.Models;
 
 
 var builder = WebApplication.CreateBuilder(args);
