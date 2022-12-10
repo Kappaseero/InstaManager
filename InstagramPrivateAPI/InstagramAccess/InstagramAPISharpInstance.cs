@@ -4,15 +4,20 @@ using InstagramApiSharp.API.Builder;
 using InstagramApiSharp.Classes.Models;
 using InstagramApiSharp.Classes.SessionHandlers;
 using InstagramApiSharp.API;
+using Microsoft.Extensions.Configuration;
+using InstagramPrivateAPI.InstagramAccess;
 
 namespace InstagramAccess
 {
     
 
-    internal static class InstagramAPISharpInstance
+    public class InstagramAPISharpInstance : IInstagramInstance
     {
-        
-        internal static IInstaApi CreateInstance (string username, string password)
+        public InstagramAPISharpInstance()
+        {
+
+        }
+        public IInstaApi CreateInstance (string username, string password)
         {
             IInstaApi api = InstaApiBuilder.CreateBuilder()
                 .SetUser(UserSessionData.ForUsername(username).WithPassword(password))
