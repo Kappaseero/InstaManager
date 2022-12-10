@@ -4,7 +4,6 @@ using InstagramApiSharp.API.Builder;
 using InstagramApiSharp.Classes.Models;
 using InstagramApiSharp.Classes.SessionHandlers;
 using InstagramApiSharp.API;
-using Microsoft.Extensions.Configuration;
 using InstagramPrivateAPI.InstagramAccess;
 
 namespace InstagramAccess
