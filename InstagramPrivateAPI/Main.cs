@@ -13,34 +13,23 @@ using InstagramAccess;
 using InstagramPrivateAPI.InstagramInteracter.Posts;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
+using InstagramPrivateAPI.Items;
 
 
 namespace InstagramPrivateAPI
 {
-    public class Main : BackgroundService
+    public class Main
     {
-        private IInstaApi instaApi;
-        public Main(HttpClient httpClient, IConfiguration configuration)
+        public QuizItem Quiz { get; set; }
+        public Main(QuizItem qItem)
         {
-            instaApi = InstagramAPISharpInstance.CreateInstance( 
-                //username and password from an IConfiguration source
-                configuration.GetSection("Credentials").GetSection("username").Value,
-                configuration.GetSection("Credentials").GetSection("password").Value);
-        }
-
-        protected async override Task ExecuteAsync(CancellationToken stoppingToken)
-        {
-
-            await InstagramBot(stoppingToken);
-        }
-        public override async Task StopAsync(CancellationToken stoppingToken)
-        {
-            
-            await base.StopAsync(stoppingToken);
+            Quiz = qItem;
         }
 
         private async Task InstagramBot(CancellationToken stoppingToken)
         {
+            
+                await Quiz.PostUnguessed();
 
         }
     }
