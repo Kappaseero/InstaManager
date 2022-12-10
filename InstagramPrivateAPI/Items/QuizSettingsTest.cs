@@ -10,13 +10,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using InstagramPrivateAPI.ImageFiles;
+using InstagramPrivateAPI.InstagramAccess;
+using InstagramAccess;
+using Microsoft.Extensions.Configuration;
+
 
 namespace InstagramPrivateAPI.Items
 {
     public class QuizSettingsTest : QuizSettingsBase
     {
         //this class is for testing purposes
-        QuizSettingsTest(HttpClient httpClient, IInstaApi instaApi)
+        public QuizSettingsTest(HttpClient httpClient, IInstaApi instaApi)
         {
             HClient = httpClient;
             InstaApiInstance = instaApi;

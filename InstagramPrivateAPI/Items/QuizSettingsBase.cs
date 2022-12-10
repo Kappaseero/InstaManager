@@ -13,6 +13,8 @@ using InstagramApiSharp.Classes;
 using InstagramPrivateAPI.InstagramInteracter.Posts;
 using InstagramPrivateAPI.Helpers.Captions;
 using InstagramPrivateAPI.Helpers.Deserializers;
+using InstagramPrivateAPI.InstagramAccess;
+
 
 namespace InstagramPrivateAPI.Items
 {
