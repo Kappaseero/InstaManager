@@ -21,7 +21,7 @@ namespace InstagramPrivateAPI.Helpers.Captions
 
             StringBuilder stringBuilder = new StringBuilder();
 
-            stringBuilder.Append(dateTimeCreated.Date.ToString() + ".");
+            stringBuilder.Append(dateTimeCreated.Date.ToString() + ". ");
             stringBuilder.Append("Possible answers are:");
             int count = 1;
             foreach(string answer in scrambledAnswersList)
@@ -29,7 +29,7 @@ namespace InstagramPrivateAPI.Helpers.Captions
                 stringBuilder.Append($" {count}:{answer}.");
                 count++;
             }
-            stringBuilder.Append(" Type the number of your answer as a comment.");
+            stringBuilder.Append(" Type the answer as a number in the comments.");
 
             return stringBuilder.ToString();
         }
@@ -39,7 +39,7 @@ namespace InstagramPrivateAPI.Helpers.Captions
             StringBuilder stringBuilder = new StringBuilder();
 
             stringBuilder.Append(dateTimeCreated.Date.ToString() + ".");
-            stringBuilder.Append($" {questionAnswerModel.Answer} was the right answer. The next quiz is released on {dateTimeNextQuiz.Date.ToString()}");
+            stringBuilder.Append($" {questionAnswerModel.Answer} was the right answer.");
 
             return stringBuilder.ToString();
         }
