@@ -19,7 +19,7 @@ namespace InstagramPrivateAPI.InstagramInteracter
         {
             //most of this is taken from the github repo samples
             await instaApi.SendRequestsBeforeLoginAsync();
-            await Task.Delay(5000);
+            await Task.Delay(2000);
             var logInResult = await instaApi.LoginAsync();
             if (logInResult.Succeeded)
             {
