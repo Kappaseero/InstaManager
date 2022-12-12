@@ -13,7 +13,6 @@ using InstagramApiSharp.Classes;
 using InstagramPrivateAPI.InstagramInteracter.Posts;
 using InstagramPrivateAPI.Helpers.Captions;
 using InstagramPrivateAPI.Helpers.Deserializers;
-using InstagramPrivateAPI.InstagramAccess;
 
 
 namespace InstagramPrivateAPI.Items
@@ -22,12 +21,10 @@ namespace InstagramPrivateAPI.Items
     {
         internal abstract Uri GuessedBackground { get; }
         internal abstract Uri UnguessedBackground { get; }
-        internal abstract HttpClient HClient { get; }
         internal abstract QuizDeserializer Deserializer { get; }
         internal abstract IGetQuiz GetQuiz { get; }
         internal abstract IQuestionAnswerModel QuestionAnswer { get; }
         internal abstract ITextModel TextModel { get; }
-        internal abstract IInstaApi InstaApiInstance { get; }
         internal abstract InstaImageUpload Image { get; }
         internal abstract TextToImageBase TextToImage { get; }
         internal abstract DateTime DateTimeNextQuiz { get; }
