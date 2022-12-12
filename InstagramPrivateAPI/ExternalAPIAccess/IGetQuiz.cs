@@ -11,7 +11,6 @@ namespace InstagramPrivateAPI.ExternalAPIAccess
     internal interface IGetQuiz
     {
         public string Uri { get; }
-        public HttpClient HttpClient { get; set; }
-        public Task<string> GetDataAsync();
+        public Task<string> GetDataAsync(HttpClient httpClient);
     }
 }
