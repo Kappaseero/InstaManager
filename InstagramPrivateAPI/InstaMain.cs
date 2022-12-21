@@ -15,7 +15,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using InstagramPrivateAPI.Items;
 using InstagramPrivateAPI.Enums;
-
+using InstagramPrivateAPI.InstagramInteracter;
 
 namespace InstagramPrivateAPI
 {
@@ -23,19 +23,15 @@ namespace InstagramPrivateAPI
     {
         public IInstaApi instaApi { get; }
         public QuizItem Quiz { get; set; }
+        public bool Challenged { get; set; }
+        public AccountActionsBase AccountActions { get; }
+
         public InstaMain(QuizItem qItem, string username, string password)
         {
             instaApi = InstagramInstanceActions.CreateInstance(username, password);
             Quiz = qItem;
+            AccountActions = new AccountActions(instaApi);
         }
 
-        /// <summary>
-        /// Tries to log the InstaAPI in. Also checks for login challenges.
-        /// </summary>
-        /// <returns>The correct LoginEnum from the following. Success, Challenged, Unsuccessful.</returns>
-        public async Task<LoginEnum> ValidateCredentialsAsync()
-        {
-            
-        }
     }
 }
