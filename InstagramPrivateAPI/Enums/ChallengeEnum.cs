@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace InstagramPrivateAPI.Enums
 {
-    public enum LoginEnum
+    public enum ChallengeEnum
     {
-        Success,
-        AlreadyLoggedIn,
-        EmailChallenged,
-        MessageChallenged,
-        SubmitPhone,
-        Unsuccessful
+        None,
+        Email,
+        PhoneNumber,
+        TxtMessage
     }
 }
