@@ -19,7 +19,8 @@ namespace InstagramPrivateAPI.InstagramInteracter
         private IInstaApi InstaApi { get; }
         
         public override bool IsLoggedIn { get { return InstaApi.IsUserAuthenticated; }}
-        private ChallengeEnum ChallengeType { get; set; }
+        public override ChallengeEnum ChallengeType { get; protected set; }
+        public override bool Challenged { get => ChallengeType != ChallengeEnum.None; }
 
 
         /// <summary>
