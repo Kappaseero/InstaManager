@@ -19,29 +19,7 @@ namespace InstagramPrivateAPI.Items
     // the class that wraps everything together for a quiz
     public class QuizItem
     {
-        //public QuizItem(IGetQuiz getQuiz, IQuestionAnswerModel questionAnswer, ITextModel textModel, IInstaApi instaApi, InstaImageUpload instaImage, TextToImageBase textToImage, DateTime dateTimeNextQuiz)
-        //{
-        //    TextToImage = textToImage;
-        //    GetQuiz = getQuiz;
-        //    QuestionAnswer = questionAnswer;
-        //    TextModel = textModel;
-        //    InstaApiInstance = instaApi;
-        //    Background = background;
-        //    FinalImage = instaImage;
-        //    ReadyUpImage(FinalImage, textToImage);
-        //    DateTimeCreated = DateTime.Now;
-        //    DateTimeNextQuiz = dateTimeNextQuiz;
-
-        //    int rightAnswer;
-        //    Caption = QuizCaption.UnguessedCaption(QuestionAnswer, DateTimeCreated, out rightAnswer);
-        //    RightAnswer = rightAnswer;
-        //    EndedCaption = QuizCaption.GuessedCaption(QuestionAnswer, DateTimeCreated, DateTimeNextQuiz);
-
-
-
-        //}
-
-        public QuizItem(QuizSettingsBase quizSettings)
+        public QuizItem(QuizSettingsBase quizSettings, IInstaApi instaApi, HttpClient httpClient)
         {
             DateTimeNextQuiz = quizSettings.DateTimeNextQuiz;
             Image = quizSettings.Image;
@@ -51,8 +29,10 @@ namespace InstagramPrivateAPI.Items
             UnguessedBackground = quizSettings.UnguessedBackground;
             GuessedBackground = quizSettings.GuessedBackground;
             TextModel = quizSettings.TextModel;
-            InstaApiInstance = quizSettings.InstaApiInstance;
             Deserializer = quizSettings.Deserializer;
+
+            InstaApi = instaApi;
+            HttpClient = httpClient;
         }
 
 
@@ -67,8 +47,9 @@ namespace InstagramPrivateAPI.Items
         private  Uri UnguessedBackground { get; set; }
         private  Uri GuessedBackground { get; set; }
         private  ITextModel TextModel { get; set; }
-        private  IInstaApi InstaApiInstance { get; set; }
         private  QuizDeserializer Deserializer { get; set; }
+        private HttpClient HttpClient { get; set; }
+        private IInstaApi InstaApi { get; set; }
 
 
         private  IResult<InstaMedia>? PostResult { get; set; }
@@ -76,7 +57,7 @@ namespace InstagramPrivateAPI.Items
         private  int RightAnswer { get; set; }
 
 
-        
+        //muista laitta login ja logout ja conf check
 
 
         public async Task PostUnguessed()
@@ -84,13 +65,13 @@ namespace InstagramPrivateAPI.Items
             //get a http response from api with GetQuiz and deserializing it
             try
             {
-                var response = await GetQuiz.GetDataAsync();
+                var response = await GetQuiz.GetDataAsync(HttpClient);
                 QuestionAnswer = Deserializer.Deserialize(QuestionAnswer, response);
                 Image.ImageBytes = TextToImage.CreateImage(UnguessedBackground, TextModel, QuestionAnswer.Question);
 
                 string caption = QuizCaption.UnguessedCaption(QuestionAnswer, DateTimeCreated, out int rightAnswer);
                 RightAnswer = rightAnswer;
-                PostResult = await ImagePoster.Post(InstaApiInstance, Image, caption);
+                PostResult = await ImagePoster.Post(InstaApi, Image, caption);
                 PostInfo = PostResult.Info;
             }
             catch (Exception ex)
@@ -107,7 +88,7 @@ namespace InstagramPrivateAPI.Items
                 Image.ImageBytes = TextToImage.CreateImage(UnguessedBackground, TextModel, QuestionAnswer.Question);
 
                 string caption = QuizCaption.GuessedCaption(QuestionAnswer, DateTimeCreated, DateTimeNextQuiz);
-                PostResult = await ImagePoster.Post(InstaApiInstance, Image, caption);
+                PostResult = await ImagePoster.Post(InstaApi, Image, caption);
                 PostInfo = PostResult.Info;
             }
             catch (Exception ex)

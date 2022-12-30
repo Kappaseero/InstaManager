@@ -22,15 +22,17 @@ namespace InstagramPrivateAPI
     public class InstaMain
     {
         public IInstaApi instaApi { get; }
+        public HttpClient HttpClient { get; }
         public QuizItem Quiz { get; set; }
         public bool Challenged { get; set; }
         public AccountActionsBase AccountActions { get; }
 
-        public InstaMain(QuizItem qItem, string username, string password)
+        public InstaMain(QuizSettingsBase quizSettings, HttpClient httpClient, string username, string password)
         {
             instaApi = InstagramInstanceActions.CreateInstance(username, password);
-            Quiz = qItem;
+            Quiz = new QuizItem(quizSettings, instaApi, httpClient);
             AccountActions = new AccountActions(instaApi);
+            HttpClient = httpClient;
         }
 
     }

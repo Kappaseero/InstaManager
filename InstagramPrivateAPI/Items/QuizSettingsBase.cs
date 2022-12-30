@@ -28,6 +28,6 @@ namespace InstagramPrivateAPI.Items
         internal abstract InstaImageUpload Image { get; }
         internal abstract TextToImageBase TextToImage { get; }
         internal abstract DateTime DateTimeNextQuiz { get; }
-}
+    }
 }
 
