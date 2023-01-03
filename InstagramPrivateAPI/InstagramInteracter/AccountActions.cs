@@ -36,7 +36,7 @@ namespace InstagramPrivateAPI.InstagramInteracter
                 //https://github.com/ramtinak/InstagramApiSharp/tree/master/samples/ChallengeRequireExample
 
                 await InstaApi.SendRequestsBeforeLoginAsync();
-                await Task.Delay(5000);
+                await Task.Delay(2000);
 
                 var logInResult = await InstaApi.LoginAsync();
                 if (logInResult.Succeeded)
