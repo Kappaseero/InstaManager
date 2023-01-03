@@ -17,11 +17,10 @@ namespace InstagramPrivateAPI.Helpers
             
         }
        
-        //Returns a Uri of a jpeg that is made with the background and text
+        //Returns a byte array that is made with the background and text
         //provided to the constructor
-        public override byte[] CreateImage(Uri background, ITextModel textModel, string imageText)
+        public override byte[] CreateImage(byte[] background, ITextModel textModel, string imageText)
         {
-            Uri Background = background;
             SKColor sKColor = new SKColor(textModel.Red, textModel.Green, textModel.Blue, textModel.Alpha);
 
 
@@ -30,12 +29,12 @@ namespace InstagramPrivateAPI.Helpers
 
 
                 var info = new SKImageInfo(1080, 1080);
+                using (var memoryStream = new MemoryStream(background))
                 using (var surface = SKSurface.Create(info))
                 using (SKCanvas canvas = surface.Canvas)
-                {
+                {;
 
-                    using (FileStream fs = File.OpenRead(Background.AbsolutePath))
-                    using (SKBitmap bitmap = SKBitmap.Decode(fs))
+                    using (SKBitmap bitmap = SKBitmap.Decode(memoryStream))
                     {
                         canvas.DrawBitmap(bitmap, 0, 0);
                     }

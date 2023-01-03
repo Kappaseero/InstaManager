@@ -11,6 +11,6 @@ namespace InstagramPrivateAPI.Helpers
 {
     internal abstract class TextToImageBase
     {
-        public abstract byte[] CreateImage(Uri background, ITextModel textModel, string imageText);
+        public abstract byte[] CreateImage(byte[] background, ITextModel textModel, string imageText);
     }
 }

@@ -44,8 +44,8 @@ namespace InstagramPrivateAPI.Items
         private  TextToImageBase TextToImage { get; set; }
         private  IGetQuiz GetQuiz { get; set; }
         private  IQuestionAnswerModel QuestionAnswer { get; set; }
-        private  Uri UnguessedBackground { get; set; }
-        private  Uri GuessedBackground { get; set; }
+        private byte[] UnguessedBackground { get; set; }
+        private  byte[] GuessedBackground { get; set; }
         private  ITextModel TextModel { get; set; }
         private  QuizDeserializer Deserializer { get; set; }
         private HttpClient HttpClient { get; set; }
@@ -60,7 +60,7 @@ namespace InstagramPrivateAPI.Items
         //muista laitta login ja logout ja conf check
 
 
-        public async Task PostUnguessed()
+        public async Task<bool> PostUnguessedAsync()
         {
             //get a http response from api with GetQuiz and deserializing it
             try
@@ -73,15 +73,17 @@ namespace InstagramPrivateAPI.Items
                 RightAnswer = rightAnswer;
                 PostResult = await ImagePoster.Post(InstaApi, Image, caption);
                 PostInfo = PostResult.Info;
+                return true;
             }
             catch (Exception ex)
             {
                 NotifyOfException(ex);
+                return false;
             }
             
         }
 
-        public async Task PostGuessed()
+        public async Task<bool> PostGuessedAsync()
         {
             try
             {
@@ -90,10 +92,12 @@ namespace InstagramPrivateAPI.Items
                 string caption = QuizCaption.GuessedCaption(QuestionAnswer, DateTimeCreated, DateTimeNextQuiz);
                 PostResult = await ImagePoster.Post(InstaApi, Image, caption);
                 PostInfo = PostResult.Info;
+                return true;
             }
             catch (Exception ex)
             {
                 NotifyOfException(ex);
+                return false;
             }
         }
 

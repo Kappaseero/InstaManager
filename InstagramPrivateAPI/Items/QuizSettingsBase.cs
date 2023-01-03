@@ -13,14 +13,15 @@ using InstagramApiSharp.Classes;
 using InstagramPrivateAPI.InstagramInteracter.Posts;
 using InstagramPrivateAPI.Helpers.Captions;
 using InstagramPrivateAPI.Helpers.Deserializers;
+using System.Drawing;
 
 
 namespace InstagramPrivateAPI.Items
 {
     public abstract class QuizSettingsBase
     {
-        internal abstract Uri GuessedBackground { get; }
-        internal abstract Uri UnguessedBackground { get; }
+        internal abstract byte[] GuessedBackground { get; }
+        internal abstract byte[] UnguessedBackground { get; }
         internal abstract QuizDeserializer Deserializer { get; }
         internal abstract IGetQuiz GetQuiz { get; }
         internal abstract IQuestionAnswerModel QuestionAnswer { get; }

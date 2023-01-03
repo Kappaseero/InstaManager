@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using InstagramPrivateAPI.ImageFiles;
 using InstagramAccess;
 using Microsoft.Extensions.Configuration;
+using System.Drawing;
 
 
 namespace InstagramPrivateAPI.Items
@@ -24,8 +25,8 @@ namespace InstagramPrivateAPI.Items
             Image.Height = 1080;
             Image.Width = 1080;
         }
-        internal override Uri UnguessedBackground => QuizBackgrounds.UnguessedBackground;
-        internal override Uri GuessedBackground => QuizBackgrounds.GuessedBackground;
+        internal override byte[] UnguessedBackground => BackgroundImages.tempBackground;
+        internal override byte[] GuessedBackground => BackgroundImages.tempBackground;
         internal override TextToImageBase TextToImage => new TextToImageSK();
         internal override QuizDeserializer Deserializer => new OpenTDBQuizDeserializer();
         internal override IQuestionAnswerModel QuestionAnswer => new QuizQuestionAnswerModel();
