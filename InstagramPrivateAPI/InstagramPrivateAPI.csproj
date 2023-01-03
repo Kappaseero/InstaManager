@@ -13,25 +13,25 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="ImageFiles\QuizBackgrounds.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="InstagramApiSharp" Version="1.7.2" />
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
     <PackageReference Include="SkiaSharp" Version="2.88.3" />
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Page Include="ImageFiles\tempBackground.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Page>
+    <Compile Update="ImageFiles\BackgroundImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BackgroundImages.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="ImageFiles\tempBackground.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <EmbeddedResource Update="ImageFiles\BackgroundImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BackgroundImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
