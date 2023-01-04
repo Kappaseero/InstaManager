@@ -71,7 +71,7 @@ namespace InstagramPrivateAPI.Items
 
                 string caption = QuizCaption.UnguessedCaption(QuestionAnswer, DateTimeCreated, out int rightAnswer);
                 RightAnswer = rightAnswer;
-                PostResult = await ImagePoster.Post(InstaApi, Image, caption);
+                PostResult = await ImageActions.PostAsync(InstaApi, Image, caption);
                 PostInfo = PostResult.Info;
                 return true;
             }
@@ -90,7 +90,7 @@ namespace InstagramPrivateAPI.Items
                 Image.ImageBytes = TextToImage.CreateImage(UnguessedBackground, TextModel, QuestionAnswer.Question);
 
                 string caption = QuizCaption.GuessedCaption(QuestionAnswer, DateTimeCreated, DateTimeNextQuiz);
-                PostResult = await ImagePoster.Post(InstaApi, Image, caption);
+                PostResult = await ImageActions.PostAsync(InstaApi, Image, caption);
                 PostInfo = PostResult.Info;
                 return true;
             }
