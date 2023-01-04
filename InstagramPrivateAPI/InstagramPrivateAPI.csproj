@@ -16,7 +16,6 @@
     <PackageReference Include="InstagramApiSharp" Version="1.7.2" />
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
     <PackageReference Include="SkiaSharp" Version="2.88.3" />
-    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,10 +24,19 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>BackgroundImages.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\BackgroundImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BackgroundImages.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="ImageFiles\BackgroundImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BackgroundImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\BackgroundImages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>BackgroundImages.Designer.cs</LastGenOutput>
     </EmbeddedResource>

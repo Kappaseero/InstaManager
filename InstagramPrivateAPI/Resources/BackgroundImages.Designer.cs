@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InstagramPrivateAPI.ImageFiles {
+namespace InstagramPrivateAPI.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace InstagramPrivateAPI.ImageFiles {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("InstagramPrivateAPI.ImageFiles.BackgroundImages", typeof(BackgroundImages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("InstagramPrivateAPI.Resources.BackgroundImages", typeof(BackgroundImages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
