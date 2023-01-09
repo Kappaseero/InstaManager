@@ -1,4 +1,4 @@
-using InstagramPrivateAPI.Enums;
+using InstaManagerLibrary.Enums;
 
 
 namespace InstaManagerUI
@@ -17,7 +17,7 @@ namespace InstaManagerUI
             string password = txtboxPassword.Text;
             lblAccountInfo.Text = "Trying to sign in. Wait.";
 
-            Program.InstaMain = new InstagramPrivateAPI.InstaMain(Program.QuizSettings, Program.Client, username, password);
+            Program.InstaMain = new InstaManagerLibrary.InstaMain(Program.QuizSettings, Program.Client, username, password);
 
             //result does nothing now since all info comes from
             //Program.InstaMain.AccountActions but it might be useful in the future
@@ -178,20 +178,34 @@ namespace InstaManagerUI
 
         private async void btnOpenTDBQuizPost_Click(object sender, EventArgs e)
         {
-            var success = await Program.InstaMain.Quiz.PostUnguessedAsync();
-            if (success)
+            if(Program.InstaMain != null)
             {
-                lblQuizInfo.Text = "OpenTDBQuiz posted successfully.";
+                var success = await Program.InstaMain.Quiz.PostUnguessedAsync();
+                if (success)
+                {
+                    lblQuizInfo.Text = "OpenTDBQuiz posted successfully.";
+                }
+                else
+                {
+                    lblQuizInfo.Text = "Could not post a OpenTDB quiz.";
+                }
             }
             else
             {
-                lblQuizInfo.Text = "Could not post a OpenTDB quiz.";
+                lblQuizInfo.Text = "No instance of InstaMain.";
             }
         }
 
         private async void btnVerificationCodeResend_Click(object sender, EventArgs e)
         {
-            await Program.InstaMain.instaApi.RequestVerifyCodeToEmailForChallengeRequireAsync();
+            if (Program.InstaMain != null)
+            {
+                await Program.InstaMain.instaApi.RequestVerifyCodeToEmailForChallengeRequireAsync();
+            }
+            else
+            {
+                lblAccountInfo.Text = "No instance of InstaMain";
+            }
         }
     }
 }

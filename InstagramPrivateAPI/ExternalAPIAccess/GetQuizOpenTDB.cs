@@ -1,12 +1,12 @@
-﻿using InstagramPrivateAPI.Helpers;
-using InstagramPrivateAPI.Models;
+﻿using InstaManagerLibrary.Helpers;
+using InstaManagerLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InstagramPrivateAPI.ExternalAPIAccess
+namespace InstaManagerLibrary.ExternalAPIAccess
 {
     internal class GetQuizOpenTDB : IGetQuiz
     {

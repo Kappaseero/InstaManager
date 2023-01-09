@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using InstagramApiSharp.API;
 using InstagramApiSharp.Classes;
 using InstagramApiSharp.Enums;
-using InstagramPrivateAPI.Enums;
+using InstaManagerLibrary.Enums;
 
-namespace InstagramPrivateAPI.InstagramInteracter
+namespace InstaManagerLibrary.InstagramInteracter
 {
     internal class AccountActions : AccountActionsBase
     {

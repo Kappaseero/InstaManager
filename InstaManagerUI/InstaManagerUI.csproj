@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\InstagramPrivateAPI\InstagramPrivateAPI.csproj" />
+    <ProjectReference Include="..\InstagramPrivateAPI\InstaManagerLibrary.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace InstagramPrivateAPI.Models
+﻿namespace InstaManagerLibrary.Models
 {
     internal interface ITextModel
     {

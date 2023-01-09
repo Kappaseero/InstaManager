@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using InstagramPrivateAPI.Models;
+using InstaManagerLibrary.Models;
 
-namespace InstagramPrivateAPI.Helpers.Captions
+namespace InstaManagerLibrary.Helpers.Captions
 {
     internal static class QuizCaption
     {

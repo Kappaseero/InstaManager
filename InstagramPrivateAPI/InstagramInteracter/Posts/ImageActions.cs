@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using InstagramPrivateAPI.ExternalAPIAccess;
-using InstagramPrivateAPI.Helpers;
-using InstagramPrivateAPI.InstagramInteracter;
+using InstaManagerLibrary.ExternalAPIAccess;
+using InstaManagerLibrary.Helpers;
+using InstaManagerLibrary.InstagramInteracter;
 using InstagramApiSharp.API;
-using InstagramPrivateAPI.Models;
+using InstaManagerLibrary.Models;
 using InstagramApiSharp.Classes;
 
-namespace InstagramPrivateAPI.InstagramInteracter.Posts
+namespace InstaManagerLibrary.InstagramInteracter.Posts
 {
     internal static class ImageActions
     {

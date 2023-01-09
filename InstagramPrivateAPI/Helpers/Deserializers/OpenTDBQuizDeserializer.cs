@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
-using InstagramPrivateAPI.Models;
-using InstagramPrivateAPI.Helpers.Deserializers;
+using InstaManagerLibrary.Models;
+using InstaManagerLibrary.Helpers.Deserializers;
 
-namespace InstagramPrivateAPI.Helpers
+namespace InstaManagerLibrary.Helpers
 {
     internal class OpenTDBQuizDeserializer : QuizDeserializer
     {
@@ -22,28 +22,28 @@ namespace InstagramPrivateAPI.Helpers
             }
 
             midResult = JsonSerializer.Deserialize<ApiSpecificClass>(responseMessage);
-            if(midResult == null)
+            if(midResult != null && midResult.results != null)
             {
-                return null;
+                model.Answer = midResult.results[0].correct_answer;
+                model.WrongAnswers = midResult.results[0].incorrect_answers;
+                model.Question = midResult.results[0].question;
+                return model;
             }
-
-            model.Answer = midResult.results[0].correct_answer;
-            model.WrongAnswers = midResult.results[0].incorrect_answers;
-            model.Question = midResult.results[0].question;
-            return model;
+            return null;
+            
         }
         //used in the middle so the deserializer understands the names
         private class ApiSpecificClass
         {
             public int response_code { get; set; }
-            public Results[] results { get; set; }
+            public Results[]? results { get; set; }
 
             
             public class Results
             {
                 public string[]? incorrect_answers { get; set; }
-                public string correct_answer { get; set; }
-                public string question { get; set; }
+                public string? correct_answer { get; set; }
+                public string? question { get; set; }
             }
 
         }

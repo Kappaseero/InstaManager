@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using SkiaSharp;
 using System.Drawing;
-using InstagramPrivateAPI.Models;
+using InstaManagerLibrary.Models;
 
-namespace InstagramPrivateAPI.Helpers
+namespace InstaManagerLibrary.Helpers
 {
     internal abstract class TextToImageBase
     {

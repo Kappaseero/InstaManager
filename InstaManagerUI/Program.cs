@@ -1,4 +1,4 @@
-using InstagramPrivateAPI.Items;
+using InstaManagerLibrary.Items;
 
 namespace InstaManagerUI
 {
@@ -19,7 +19,7 @@ namespace InstaManagerUI
             Application.Run(new MainForm());
         }
 
-        public static InstagramPrivateAPI.InstaMain? InstaMain { get; set; }
+        public static InstaManagerLibrary.InstaMain? InstaMain { get; set; }
         public static HttpClient Client { get; set; } = new HttpClient();
         public static QuizSettingsBase QuizSettings { get; set; } = new QuizSettingsTest();
     }

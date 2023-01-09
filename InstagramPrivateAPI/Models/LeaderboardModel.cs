@@ -4,14 +4,60 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InstagramPrivateAPI.Models
+namespace InstaManagerLibrary.Models
 {
-    internal class LeaderboardModel : LeaderboardBase
+    public class LeaderboardModel : LeaderboardBase
     {
-        internal LeaderboardModel(SortedList<int, LeaderboardPersonModel> sortedList)
+        public LeaderboardModel(InstaMain instaMain)
         {
-            LeaderboardList = sortedList;
+            InstaMain = instaMain;
         }
-        public SortedList<int, LeaderboardPersonModel> LeaderboardList { get; set; }
+        public override List<LeaderboardPersonModel>? Leaderboard { get; set; }
+        private InstaMain InstaMain { get; }
+
+        /// <summary>
+        /// Saves the leaderboard data to the local database table.
+        /// </summary>
+        /// <returns>True if successful.</returns>
+        public override bool Save()
+        {
+            bool success = false;
+            if (success)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Creates a leaderboard from the local database table.
+        /// </summary>
+        /// <returns>True if successful.</returns>
+        public override bool Load()
+        {
+            if (Leaderboard != null)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Empties the leaderboard table from the local database.
+        /// </summary>
+        /// <returns>True if successful.</returns>
+        public override bool Delete()
+        {
+            bool success = false;
+            if (success)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
     }
 }

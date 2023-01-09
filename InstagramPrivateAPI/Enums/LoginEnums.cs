@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InstagramPrivateAPI.Enums
+namespace InstaManagerLibrary.Enums
 {
     public enum LoginEnum
     {

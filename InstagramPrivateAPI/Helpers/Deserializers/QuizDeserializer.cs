@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
-using InstagramPrivateAPI.Models;
+using InstaManagerLibrary.Models;
 
-namespace InstagramPrivateAPI.Helpers.Deserializers
+namespace InstaManagerLibrary.Helpers.Deserializers
 {
     internal abstract class QuizDeserializer
     {

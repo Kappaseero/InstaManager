@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InstagramPrivateAPI.Models
+namespace InstaManagerLibrary.Models
 {
-    internal class LeaderboardPersonModel
+    public class LeaderboardPersonModel
     {
-        internal LeaderboardPersonModel(string name)
+        public LeaderboardPersonModel(string name)
         {
             Name = name;
             Score = 0;

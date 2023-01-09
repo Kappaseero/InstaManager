@@ -1,21 +1,22 @@
 ﻿using InstagramApiSharp.API;
 using InstagramApiSharp.Classes.Models;
-using InstagramPrivateAPI.ExternalAPIAccess;
-using InstagramPrivateAPI.Helpers;
-using InstagramPrivateAPI.Helpers.Deserializers;
-using InstagramPrivateAPI.Models;
+using InstaManagerLibrary.ExternalAPIAccess;
+using InstaManagerLibrary.Helpers;
+using InstaManagerLibrary.Helpers.Deserializers;
+using InstaManagerLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using InstagramPrivateAPI.Resources;
+using InstaManagerLibrary.Resources;
 using InstagramAccess;
 using Microsoft.Extensions.Configuration;
 using System.Drawing;
+using InstaManagerLibrary.Items;
 
 
-namespace InstagramPrivateAPI.Items
+namespace InstaManagerLibrary.Items
 {
     public class QuizSettingsTest : QuizSettingsBase
     {

@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using InstagramPrivateAPI.ExternalAPIAccess;
-using InstagramPrivateAPI.Helpers;
-using InstagramPrivateAPI.InstagramInteracter;
+using InstaManagerLibrary.ExternalAPIAccess;
+using InstaManagerLibrary.Helpers;
+using InstaManagerLibrary.InstagramInteracter;
 using InstagramApiSharp.API;
-using InstagramPrivateAPI.Models;
+using InstaManagerLibrary.Models;
 using InstagramApiSharp.Classes.Models;
 using InstagramApiSharp.Classes;
-using InstagramPrivateAPI.InstagramInteracter.Posts;
-using InstagramPrivateAPI.Helpers.Captions;
-using InstagramPrivateAPI.Helpers.Deserializers;
+using InstaManagerLibrary.InstagramInteracter.Posts;
+using InstaManagerLibrary.Helpers.Captions;
+using InstaManagerLibrary.Helpers.Deserializers;
 using System.Drawing;
 
 
-namespace InstagramPrivateAPI.Items
+namespace InstaManagerLibrary.Items
 {
     public abstract class QuizSettingsBase
     {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using InstagramPrivateAPI.Models;
-using InstagramPrivateAPI.Helpers;
+using InstaManagerLibrary.Models;
+using InstaManagerLibrary.Helpers;
 
-namespace InstagramPrivateAPI.ExternalAPIAccess
+namespace InstaManagerLibrary.ExternalAPIAccess
 {
     internal interface IGetQuiz
     {
